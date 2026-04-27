@@ -580,7 +580,9 @@ export default function App() {
         {/* Top bar */}
         <div style={topbar}>
           <div style={{flex:1}}>
-           <div style={logo}>{"Kelcy's — "}{weekName || `Week of ${fmtShort(weekData.mon)}`}</div>
+           <div style={logo}>
+  Kelcys — {weekName ? weekName : "Week of " + fmtShort(weekData.mon)}
+</div>
             <div style={sub2}>Mon {fmtShort(weekData.mon)} – Sun {fmtShort(addDays(weekData.mon,6))}</div>
           </div>
           <button style={btn('ghost')} onClick={() => setEditingStaff(true)}>Edit Staff</button>
