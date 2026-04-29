@@ -618,7 +618,7 @@ export default function App() {
             const dayDate = day.date;
             const onFloorByHour = {};
             HOUR_LABELS.forEach((_, hi) => {
-              onFloorByHour[hi] = staff.filter(s => shifts[s.id]?.[`${dayDate}:${hi}`]).length;
+             onFloorByHour[hi] = staff.filter(s => shifts[s.id] && shifts[s.id][dayDate + ':' + hi]).length;
             });
             const totalHoursDay = staff.reduce((sum, s) => {
               return sum + Object.keys(shifts[s.id]||{}).filter(k => k.startsWith(dayDate+':')).length;
